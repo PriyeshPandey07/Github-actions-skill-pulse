@@ -1,4 +1,4 @@
-name: CI
+name: CI Workflow
 
 on:
   push:
@@ -22,5 +22,4 @@ jobs:
         with:
           context: ./backend
           push: true
-          tags: 
-            ${{ secrets.DOCKERHUB_USER }}/skillpulse-backend:latest
+          tags: ${{ secrets.DOCKERHUB_USER }}/skillpulse-backend:latest
