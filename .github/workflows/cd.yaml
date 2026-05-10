@@ -1,0 +1,22 @@
+name: CD Workflow
+
+on:
+  workflow_run:
+    workflows: ["CI Workflow"]
+    types:
+      - completed
+
+jobs: 
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Execute remote ssh command using password
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          password: ${{ secrets.EC2_PASSWORD }}
+          script: 
+            cd ~/Github-actions-skill-pulse
