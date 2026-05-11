@@ -18,7 +18,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          script: 
+          script: |
             git clone https://github.com/PriyeshPandey07/Github-actions-skill-pulse.git
             cd ~/Github-actions-skill-pulse
             git pull origin main
