@@ -17,6 +17,10 @@ jobs:
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
-          password: ${{ secrets.EC2_PASSWORD }}
+          key: ${{ secrets.EC2_SSH_KEY }}
           script: 
+            git clone https://github.com/PriyeshPandey07/Github-actions-skill-pulse.git
             cd ~/Github-actions-skill-pulse
+            git pull origin main
+            docker compose pull
+            docker compose up -d 
